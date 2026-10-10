@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>I Love You, My Dear 🌹</title>
+<style>
+  :root { color-scheme: dark; --pink:#ff3b9d; --aqua:#22c7d6; --deep:#09091d; }
+  * { box-sizing: border-box; }
+  html,body { margin:0; min-height:100%; }
+  body {
+    min-height:100vh; display:grid; place-items:center; overflow:hidden;
+    background:radial-gradient(ellipse at 50% 45%, #15142d 0%, #080812 65%, #030308 100%);
+    font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  }
+  .scene {
+    position:relative; width:min(88vw, 520px); aspect-ratio:1; border-radius:50%;
+    overflow:hidden; isolation:isolate;
+    background:
+      radial-gradient(ellipse at 50% 25%, rgba(80,55,126,.45), transparent 48%),
+      linear-gradient(#100d2b 0%, #17133b 48%, #113b4b 72%, #104c54 100%);
+    box-shadow:0 0 45px #3b2b6640, 0 0 110px #ed318f12;
+  }
+  .stars,.stars:before,.stars:after { position:absolute; inset:0; pointer-events:none; }
+  .stars { background-image:
+    radial-gradient(1.5px 1.5px at 12% 14%,#fff 60%,transparent 70%),
+    radial-gradient(1px 1px at 27% 27%,#b9d8ff 60%,transparent 70%),
+    radial-gradient(1.4px 1.4px at 73% 15%,#fff 60%,transparent 70%),
+    radial-gradient(1px 1px at 84% 34%,#fff 60%,transparent 70%),
+    radial-gradient(1px 1px at 61% 37%,#f7a9d8 60%,transparent 70%),
+    radial-gradient(1.3px 1.3px at 40% 10%,#fff 60%,transparent 70%),
+    radial-gradient(1px 1px at 19% 39%,#fff 60%,transparent 70%),
+    radial-gradient(1px 1px at 91% 20%,#fff 60%,transparent 70%); 
+    animation:twinkle 3.4s ease-in-out infinite alternate; }
+  .stars:before { content:""; background-image:
+    radial-gradient(1px 1px at 18% 22%,#fff 60%,transparent 70%),
+    radial-gradient(1px 1px at 48% 31%,#fff 60%,transparent 70%),
+    radial-gradient(1px 1px at 78% 26%,#d8c8ff 60%,transparent 70%),
+    radial-gradient(1px 1px at 33% 42%,#fff 60%,transparent 70%); animation:twinkle 2.1s ease-in-out infinite alternate-reverse; }
+  .glow { position:absolute; width:45%; height:28%; left:28%; top:33%; background:#e83e9b24; filter:blur(28px); border-radius:50%; }
+  .message { position:absolute; z-index:5; top:13%; width:100%; text-align:center; color:var(--pink); font-weight:800; letter-spacing:.045em; text-shadow:0 0 8px #ff2e9a,0 0 22px #ff2e9a65; animation:messageGlow 2.5s ease-in-out infinite alternate; }
+  .message .main { display:block; font-size:clamp(22px,6vw,35px); line-height:1.05; }
+  .message .sub { display:block; margin-top:4px; font-size:clamp(11px,2.8vw,15px); letter-spacing:.13em; }
+  .horizon { position:absolute; z-index:1; left:-5%; right:-5%; top:63%; height:38%; background:linear-gradient(#166b79,#16545d); }
+  .wave { position:absolute; z-index:2; width:120%; left:-10%; height:21%; border-radius:50% 50% 0 0 / 35% 35% 0 0; }
+  .wave.one { top:58%; background:#1cb6c8; transform:rotate(-2deg); animation:waveMove 4s ease-in-out infinite alternate; }
+  .wave.two { top:64%; background:#087c91; transform:rotate(3deg); animation:waveMove 5s ease-in-out infinite alternate-reverse; }
+  .wave.three { top:70%; background:#125b6c; transform:rotate(-1deg); animation:waveMove 6s ease-in-out infinite alternate; }
+  .leaf { position:absolute; z-index:3; width:18%; height:9%; background:#21bfd0; border-radius:100% 0 100% 0; transform-origin:0 100%; }
+  .leaf.a { left:3%; top:62%; transform:rotate(28deg); }
+  .leaf.b { left:17%; top:60%; transform:rotate(48deg) scale(.85); background:#087e9a; }
+  .leaf.c { right:7%; top:61%; transform:scaleX(-1) rotate(30deg); }
+  .leaf.d { right:23%; top:59%; transform:scaleX(-1) rotate(47deg) scale(.85); background:#087e9a; }
+  .leaf.e { left:38%; top:65%; transform:rotate(20deg) scale(.7); background:#0d8fa7; }
+  .plant { position:absolute; z-index:4; left:50%; top:45%; width:4px; height:28%; background:linear-gradient(90deg,#176b38,#4bb85b,#15572e); transform:translateX(-50%); border-radius:4px; animation:plantSway 3.2s ease-in-out infinite; transform-origin:50% 100%; }
+  .stem-leaf { position:absolute; width:36px; height:15px; background:#228f45; border-radius:100% 0 100% 0; }
+  .stem-leaf.left { left:-31px; top:58%; transform:rotate(16deg); }
+  .stem-leaf.right { left:2px; top:73%; transform:scaleX(-1) rotate(10deg); }
+  .rose { position:absolute; z-index:5; left:50%; top:39%; width:42px; height:46px; transform:translateX(-50%); animation:sway 3.2s ease-in-out infinite; }
+  .petal { position:absolute; background:linear-gradient(135deg,#ff4a68,#d50035 75%); box-shadow:inset -3px -3px 5px #8d001e55; }
+  .petal.p1 { width:24px;height:27px;left:9px;top:8px;border-radius:60% 50% 45% 55%; transform:rotate(-22deg); }
+  .petal.p2 { width:24px;height:25px;left:2px;top:14px;border-radius:60% 50% 50% 45%; transform:rotate(-46deg); }
+  .petal.p3 { width:25px;height:26px;left:16px;top:13px;border-radius:50% 60% 45% 50%; transform:rotate(36deg); }
+  .petal.p4 { width:18px;height:21px;left:12px;top:2px;border-radius:55% 55% 40% 40%; background:linear-gradient(130deg,#ff6278,#ed174b); }
+  .heart { position:absolute; z-index:4; color:#ff3998; font-size:18px; text-shadow:0 0 9px #ff1685; animation:floatUp 5.5s linear infinite; opacity:0; }
+  .heart.h1 { left:23%; bottom:8%; animation-delay:0s; }
+  .heart.h2 { left:72%; bottom:2%; animation-delay:1.8s; font-size:14px; }
+  .heart.h3 { left:34%; bottom:0%; animation-delay:3.1s; font-size:12px; }
+  .heart.h4 { left:82%; bottom:12%; animation-delay:2.5s; }
+  .ground { position:absolute; z-index:6; left:36%; top:83%; width:28%; height:5px; border-radius:50%; background:#f0144c; box-shadow:0 0 8px #ff174b; }
+  .ground:after { content:""; position:absolute; left:22%; top:4px; width:56%; height:3px; background:#d80c3c; border-radius:50%; }
+  @keyframes twinkle { from{opacity:.35} to{opacity:1} }
+  @keyframes waveMove { from{transform:translateX(-2%) rotate(-2deg)} to{transform:translateX(2%) rotate(2deg)} }
+  @keyframes plantSway { 0%,100%{rotate:-2deg} 50%{rotate:2deg} }
+  @keyframes messageGlow { from{filter:brightness(.9)} to{filter:brightness(1.25)} }
+  @keyframes sway { 0%,100%{transform:translateX(-50%) rotate(-3deg)} 50%{transform:translateX(-50%) rotate(3deg)} }
+  @keyframes floatUp { 0%{transform:translateY(0) scale(.7) rotate(-10deg);opacity:0} 15%{opacity:.9} 80%{opacity:.75} 100%{transform:translateY(-310px) scale(1.15) rotate(18deg);opacity:0} }
+  .hint { position:fixed; bottom:18px; color:#b8b3d0; font-size:12px; opacity:.65; letter-spacing:.08em; }
+</style>
+</head>
+<body>
+  <main class="scene" role="img" aria-label="Animasi mawar merah dengan tulisan I Love You My Dear di bawah langit malam">
+    <div class="stars"></div><div class="glow"></div>
+    <div class="message"><span class="main">I Love You</span><span class="sub">My Dear</span></div>
+    <div class="horizon"></div>
+    <div class="wave one"></div><div class="wave two"></div><div class="wave three"></div>
+    <div class="leaf a"></div><div class="leaf b"></div><div class="leaf c"></div><div class="leaf d"></div><div class="leaf e"></div>
+    <div class="plant"><i class="stem-leaf left"></i><i class="stem-leaf right"></i></div>
+    <div class="rose"><i class="petal p1"></i><i class="petal p2"></i><i class="petal p3"></i><i class="petal p4"></i></div>
+    <div class="ground"></div>
+    <span class="heart h1">♥</span><span class="heart h2">♥</span><span class="heart h3">♥</span><span class="heart h4">♥</span>
+  </main>
+  <div class="hint">made with love ♥</div>
+</body>
+</html>
